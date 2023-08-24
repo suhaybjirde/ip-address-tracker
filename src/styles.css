@@ -1,0 +1,181 @@
+/* https://www.joshwcomeau.com/css/custom-css-reset/ "for more info" */
+
+/* resets */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    font-family: 'Rubik', sans-serif;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+#root {
+    isolation: isolate;
+    height: 100%;
+}
+
+/* header */
+.header {
+    height: 40vh;
+    background: url('./assets/pattern-bg-desktop.png') no-repeat center center/cover;
+}
+
+.title {
+    font-size: 2.1rem;
+    text-align: center;
+    padding-top: 1rem;
+    color: #fff;
+}
+
+.form {
+    margin-top: 1rem;
+    display: flex;
+    background-color: #fff;
+    max-width: 31.25rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-inline: auto;
+}
+
+.input {
+    padding: 0.8rem 1.4rem;
+    font-size: 1.125rem;
+    flex: 1;
+    border: 0;
+    color: hsl(0, 0%, 17%);
+    outline: none;
+}
+
+.submit-btn {
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: #000;
+
+    &:hover, &:focus, &:disabled {
+        background-color: hsl(0, 0%, 17%);
+    }
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 0.4rem;
+}
+
+
+/* main and the Map */
+.main {
+    height: 60vh;
+    position: relative;
+    isolation: isolate;
+}
+
+.details {
+    display: flex;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    width: 70%;
+    justify-content: space-between;
+    border-radius: 1rem;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+
+    & div {
+        flex: 1;
+        padding-left: 1rem;
+
+        &:not(:last-child) {
+            border-right: 1px solid hsl(0, 0%, 59%, 0.3);
+        }
+    }
+
+    & strong {
+        color: hsl(0, 0%, 59%);
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+
+    & h2 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+        font-weight: 700;
+        margin-top: 0.5rem;
+    }
+
+}
+
+.leaflet-container {
+    height: 100%;
+    z-index: 1;
+}
+
+@media (max-width: 62.5rem) {
+    .header {
+        padding: 0 2rem;
+    }
+    .details {
+        transform: translate(-50%, -40%);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+        max-height: 260px;
+
+        & div:not(:last-child) {
+            border-right: 0;
+        }
+
+        & strong {
+            font-size: 0.7rem;
+        }
+
+        & h2 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+    }
+}
